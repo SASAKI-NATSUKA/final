@@ -11,16 +11,16 @@
     <a href="menu.php">メニューに戻る</a>
     <br>
     <form action="insert-output.php" method="post">
-        番号:
-        <input type="text" name="id">
-        <br>
-        名前:
-        <input type="text" name="name">
-        <br>
-        分類:
-        <input type="text" name="bunrui">
         グループ:
         <input type="text" name="gr">
+        番　　号:
+        <input type="text" name="id">
+        <br>
+        名　　前:
+        <input type="text" name="name">
+        <br>
+        分　　類:
+        <input type="text" name="bunrui">
         <br>
         <br>
         <table align="left">
