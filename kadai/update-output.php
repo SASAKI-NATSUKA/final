@@ -6,8 +6,9 @@
     $name=$_POST['name'];
     $bunrui=$_POST['bunrui'];
     $type1=$_POST['type1'];
+    $gr=$_POST['gr'];
 
-    $sql=$pdo->prepare('update Pokemon set name=?,bunrui=?, type1=?, where id=?');
+    $sql=$pdo->prepare('update Pokemon set name=?,bunrui=?, type1=?, gr=? where id=?');
 
     if (empty($name)) {
         echo '商品名を入力してください。';
@@ -30,10 +31,10 @@
     //     echo '商品画像パスを入力してください。';
     }else if(isset($_POST['type2'])){
         $sql=$pdo->prepare('update Pokemon set name=?,bunrui=?, type1=?, type2=? where id=?');
-        $sql->execute([htmlspecialchars($name), ($bunrui), ($type1),($_POST['type2']),($id)]);
+        $sql->execute([htmlspecialchars($name), ($bunrui), ($type1),($_POST['type2']), ($gr), ($id)]);
         echo '更新に成功しました。';
     }else if (enpty($_POST['type2'])){
-        $sql->execute([htmlspecialchars($name), ($bunrui), ($type), ($id)]);
+        $sql->execute([htmlspecialchars($name), ($bunrui), ($type), ($gr),($id)]);
         echo '更新に成功しました。';
     }else {
         echo '更新に失敗しました。';

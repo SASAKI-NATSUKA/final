@@ -8,6 +8,9 @@
                         echo '<tr>';
                         echo '<form action="update-output.php" method="post">';
                         echo '<td>';
+                        echo '<input type="text" name="gr" value="', $row['gr'], '">';
+                        echo '</td> ';
+                        echo '<td>';
                         echo '<input type="hidden" name="id" value="', $row['id'], '">';
                         echo 'NO.　',$row['id'];
                         echo '</td> ';
