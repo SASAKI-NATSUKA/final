@@ -7,8 +7,8 @@
                     foreach ($sql as $row) {
                         echo '<tr>';
                         echo '<form action="update-output.php" method="post">';
-                        echo '<td>';
-                        echo '<input type="text" name="gr" value="', $row['gr'], '">';
+                        echo '<td>グループ名';
+                        echo '<input type="text" name="gr" value="', $row['grId'], '">';
                         echo '</td> ';
                         echo '<td>';
                         echo '<input type="hidden" name="id" value="', $row['id'], '">';

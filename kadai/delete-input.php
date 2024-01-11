@@ -4,7 +4,7 @@ echo '<table>';
 $pdo=new PDO($connect, USER, PASS);
 foreach($pdo->query('select * from Pokemon') as $row) {
     echo '<tr>';
-    echo '<td>　', $row['gr'], '</td>'; 
+    echo '<td>グループ名　', $row['grId'], '</td>'; 
     echo '<td>NO.', $row['id'], '</td>';
     echo '<td>　', $row['name'], '</td>';
     echo '<td>　', $row['bunrui'], '</td>';

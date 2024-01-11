@@ -1,7 +1,7 @@
 <?php require 'db-connect.php'; ?>
 <?php
     $pdo = new PDO($connect,USER,PASS);
-    $sql = $pdo->prepare('insert into Pokemon (id,name,bunrui,type1,gr) value (?,?,?,?,?)');
+    $sql = $pdo->prepare('insert into Pokemon (id,name,bunrui,type1,grId) value (?,?,?,?,?)');
     if (empty($_POST['name'])) {
         echo '商品名を入力してください。';
     
@@ -21,7 +21,7 @@
     // if(empty($_POST['pass'])){
     //     echo '商品画像パスを入力してください。';
     }else if(isset($_POST['type2'])){
-        $sql = $pdo->prepare('insert into Pokemon (id,name,bunrui,type1,type2,gr) value (?,?,?,?,?,?)');
+        $sql = $pdo->prepare('insert into Pokemon (id,name,bunrui,type1,type2,grId) value (?,?,?,?,?,?)');
         $id=$_POST['id'];
         $name=$_POST['name'];
         $bunrui=$_POST['bunrui'];

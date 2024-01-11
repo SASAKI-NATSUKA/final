@@ -9,7 +9,7 @@
     <h1>pokemon手持ち管理</h1>
     <table>
     <tr>
-    <td><form action="select.php" method="post">
+    <td><form action="select1.php" method="post">
         <input type="submit" name="select" value="一覧">
     </form>
     </td>
