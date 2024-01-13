@@ -10,7 +10,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  
     // Pokemon テーブルと Type テーブルをLEFT JOINしてデータを取得
-    $query = $pdo->prepare("SELECT Pokemon.ID, Pokemon.name, Pokemon.bunrui, Pokemon.type1_id, Pokemon.type2_id, Type.type_name AS type1_name, Type2.type_name AS type2_name, Gr.grId, Gr.gr_name
+    $query = $pdo->prepare("SELECT Pokemon.ID, Pokemon.name, Pokemon.bunrui, Pokemon.jpg, Pokemon.type1_id, Pokemon.type2_id, Type.type_name AS type1_name, Type2.type_name AS type2_name, Gr.grId, Gr.gr_name
                           FROM Pokemon
                           LEFT JOIN Type ON Pokemon.type1_id = Type.typeId
                           LEFT JOIN Type AS Type2 ON Pokemon.type2_id = Type2.typeId
@@ -38,6 +38,7 @@ try {
     ?>
     <table border="1">
         <tr>
+            <th>写真</th>
             <th>グループ</th>
             <th>ID</th>
             <th>名前</th>
@@ -48,6 +49,7 @@ try {
         <?php foreach ($result as $row): ?>
             <tr>
             <form action="update-input2.php" method="post">
+            <?php echo '<td> <img alt="image" src="../img/', $row['jpg'], '.jpg" height="120" width=120">';?> 
             <td><?php echo $row['gr_name']; ?></td>
                 <td><?php echo $row['ID']; ?></td>
                 <td><?php echo $row['name']; ?></td>

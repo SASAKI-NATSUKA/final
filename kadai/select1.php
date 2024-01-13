@@ -1,5 +1,5 @@
 <?php require 'db-connect.php'; ?>
-<h1>グループ</h1>
+<h1>グループを選択してください。</h1>
 <?php
 $pdo=new PDO($connect, USER, PASS);
 $sql=$pdo->query('select * from Pokemon LEFT JOIN Gr ON Pokemon.gr_Id = Gr.grId');
@@ -15,17 +15,17 @@ foreach ($sql as $row) {
 
 $pdo=new PDO($connect, USER, PASS);
 //ここからプルダウン
-            $sql = 'select * from Gr';
+            $sql = 'select distinct gr_name from Gr';
             $data = "";
 
             if ($stmt = $pdo->query($sql)) {
             foreach($stmt as $type_data_val){
-                $data .= "<option value='". $type_data_val['grId'];
+                $data .= "<option value='". $type_data_val['gr_name'];
                 $data .= "'>". $type_data_val['gr_name']. "</option>";
             }
             }
         
-            echo '<select name="grId">';
+            echo '<select name="gr_name">';
 
             echo $data;
             echo '</select>';

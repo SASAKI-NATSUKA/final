@@ -2,7 +2,7 @@
 <?php
     $pdo = new PDO($connect,USER,PASS);
     if (empty($_POST['name'])) {
-        echo '商品名を入力してください。';
+        echo '名前を入力してください。';
     
     }else if(empty($_POST['id'])){
          echo 'IDを入力してください。';
@@ -16,9 +16,8 @@
     } else if(empty($_POST['gr_name'])){
         echo 'グループを入力してください';
 
-    // }else
-    // if(empty($_POST['pass'])){
-    //     echo '商品画像パスを入力してください。';
+    }else if(empty($_POST['jpg'])){
+         echo '商品画像を入力してください。';
 
     }else if(isset($_POST['type2'])){
         $sql = $pdo->prepare('insert into Gr (gr_name) value (?)');
