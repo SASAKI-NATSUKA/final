@@ -12,7 +12,7 @@
     <br>
     <form action="insert-output.php" method="post">
         グループ:
-        <input type="text" name="gr">
+        <input type="text" name="gr_name">
         番　　号:
         <input type="text" name="id">
         <br>
@@ -22,45 +22,33 @@
         分　　類:
         <input type="text" name="bunrui">
         <br>
+        写　　真:
+        <input type="text" name="jpg">.jpg
+        <br>
         <br>
         <table align="left">
             <tr>
             <td>
             タイプ1:
             <br>
-            <input type="checkbox" name="type1" value="ほのお">ほのお
-            <br>
-            <input type="checkbox" name="type1" value="みず">みず
-            <br>
-            <input type="checkbox" name="type1" value="くさ">くさ
-            <br>
-            <input type="checkbox" name="type1" value="でんき">でんき
-            <br>
-            <input type="checkbox" name="type1" value="こおり">こおり
-            <br>
-            <input type="checkbox" name="type1" value="かくとう">かくとう
-            <br>
-            <input type="checkbox" name="type1" value="どく">どく
-            <br>
-            <input type="checkbox" name="type1" value="じめん">じめん
-            <br>
-            <input type="checkbox" name="type1" value="ひこう">ひこう
-            <br>
-            <input type="checkbox" name="type1" value="エスパー">エスパー
-            <br>
-            <input type="checkbox" name="type1" value="むし">むし
-            <br>
-            <input type="checkbox" name="type1" value="ゴースト">ゴースト
-            <br>
-            <input type="checkbox" name="type1" value="ドラゴン">ドラゴン
-            <br>
-            <input type="checkbox" name="type1" value="あく">あく
-            <br>
-            <input type="checkbox" name="type1" value="はがね">はがね
-            <br>
-            <input type="checkbox" name="type1" value="フェアリー">フェアリー
-            <br>
-            <br>
+            <?php
+                    $pdo=new PDO($connect, USER, PASS);
+            //ここからプルダウン
+                        $sql = 'select * from Type';
+                        $data = "";
+
+                        if ($stmt = $pdo->query($sql)) {
+                        foreach($stmt as $type_data_val){
+                            $data .= "<option value='". $type_data_val['typeId'];
+                            $data .= "'>". $type_data_val['type_name']. "</option>";
+                        }
+                        }
+                    
+                        echo '<select name="type1">';
+
+                        echo $data;
+                        echo '</select>';
+            ?>         
             </td>
             </tr>
         </table>
@@ -69,37 +57,24 @@
             <td>
             タイプ2:
             <br>
-            <input type="checkbox" name="type2" value="ほのお">ほのお
+            <?php
+            //ここからプルダウン
+                        $sql = 'select * from Type';
+                        $data = "";
+
+                        if ($stmt = $pdo->query($sql)) {
+                        foreach($stmt as $type_data_val){
+                            $data .= "<option value='". $type_data_val['typeId'];
+                            $data .= "'>". $type_data_val['type_name']. "</option>";
+                        }
+                        }
+                    
+                        echo '<select name="type2">';
+
+                        echo $data;
+                        echo '</select>';
+            ?>         
             <br>
-            <input type="checkbox" name="type2" value="みず">みず
-            <br>
-            <input type="checkbox" name="type2" value="くさ">くさ
-            <br>
-            <input type="checkbox" name="type2" value="でんき">でんき
-            <br>
-            <input type="checkbox" name="type2" value="こおり">こおり
-            <br>
-            <input type="checkbox" name="type2" value="かくとう">かくとう
-            <br>
-            <input type="checkbox" name="type2" value="どく">どく
-            <br>
-            <input type="checkbox" name="type2" value="じめん">じめん
-            <br>
-            <input type="checkbox" name="type2" value="ひこう">ひこう
-            <br>
-            <input type="checkbox" name="type2" value="エスパー">エスパー
-            <br>
-            <input type="checkbox" name="type2" value="むし">むし
-            <br>
-            <input type="checkbox" name="type2" value="ゴースト">ゴースト
-            <br>
-            <input type="checkbox" name="type2" value="ドラゴン">ドラゴン
-            <br>
-            <input type="checkbox" name="type2" value="あく">あく
-            <br>
-            <input type="checkbox" name="type2" value="はがね">はがね
-            <br>
-            <input type="checkbox" name="type2" value="フェアリー">フェアリー
             <br>
         </td>
     </tr>

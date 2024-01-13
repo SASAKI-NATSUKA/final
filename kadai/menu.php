@@ -19,12 +19,12 @@
     </form>
     </td>
     <td>
-    <form action="update-input.php" method="post">
+    <form action="update.php" method="post">
         <input type="submit" name="update" value="更新"></a>
     </form>
     </td>
     <td>
-    <form action="delete-input.php" method="post">
+    <form action="delete.php" method="post">
         <input type="submit" name="delete" value="削除"></a>
     </form>
     </td>

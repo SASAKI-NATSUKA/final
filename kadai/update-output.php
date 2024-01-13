@@ -6,9 +6,13 @@
     $name=$_POST['name'];
     $bunrui=$_POST['bunrui'];
     $type1=$_POST['type1'];
-    $gr=$_POST['gr'];
+    $type2=$_POST['type2'];
+    $gr_name=$_POST['gr_name'];
+    $jpg=$_POST['jpg'];
 
-    $sql=$pdo->prepare('update Pokemon set name=?,bunrui=?, type1=?, grId=? where id=?');
+    $sql=$pdo->prepare('update Pokemon LEFT JOIN Type as t1 ON Pokemon.type1_id = t1.typeId JOIN Type as t2 ON Pokemon.type2_id = t2.typeId 
+                        set name=?,bunrui=?, type1_id=?, type2_id=?, jpg=?
+                        where id=?');
 
     if (empty($name)) {
         echo '商品名を入力してください。';
@@ -16,9 +20,6 @@
     // }else
     // if(empty($_POST['text'])){
     //     echo '商品説明を入力してください。';
-
-    } else if (!preg_match('/[0-9]+/', $id)) {
-        echo '番号を整数で入力してください。';
 
     } else if(empty($bunrui)){
         echo '分類を記入してください';
@@ -29,12 +30,7 @@
     // }else
     // if(empty($_POST['pass'])){
     //     echo '商品画像パスを入力してください。';
-    }else if(isset($_POST['type2'])){
-        $sql=$pdo->prepare('update Pokemon set name=?,bunrui=?, type1=?, type2=?,grId=? where id=?');
-        $sql->execute([htmlspecialchars($name), ($bunrui), ($type1),($_POST['type2']), ($gr), ($id)]);
-        echo '更新に成功しました。';
-    }else if (enpty($_POST['type2'])){
-        $sql->execute([htmlspecialchars($name), ($bunrui), ($type), ($gr),($id)]);
+    }else if ( $sql->execute([htmlspecialchars($name), ($bunrui), ($type1),($type2), ($id), ($jpg)])){
         echo '更新に成功しました。';
     }else {
         echo '更新に失敗しました。';
@@ -59,15 +55,17 @@
 
         echo '</table>';
         echo '<form action="update-input2.php" method="post">';
-        echo '<input type="hidden" name="id" value="', $_POST['id'], '">';
+        echo '<input type="hidden" name="id" value="', $id, '">';
         echo '<button type="submit">戻る</button>';
-        echo '</form>'
-        ?>
+        echo '</form>';
 
-        <form action="update-input.php" method="post">
-        <button type="submit">更新一覧画面に戻る</button>
-        </form>
+        echo '<form action="update-input.php" method="post">';
+        echo '<input type="hidden" name="gr_name" value="', $gr_name, '">';
+        echo '<button type="submit">更新一覧画面に戻る</button>';
+        echo '</form>';
+        ?>
         </div>
+        <br>
         <a href="menu.php">メニューに戻る</a>
 </body>
 </html>
