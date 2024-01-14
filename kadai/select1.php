@@ -1,6 +1,10 @@
+<link rel="stylesheet" href="../css/frame.css">
 <?php require 'db-connect.php'; ?>
-<h1>グループを選択してください。</h1>
 <?php
+echo '<div class="bg-full">';
+echo '<h1>グループを選択してください。</h1>';
+
+
 
 $pdo=new PDO($connect, USER, PASS);
 $sql=$pdo->query('select * from Pokemon LEFT JOIN Gr ON Pokemon.gr_Id = Gr.grId');
@@ -35,6 +39,9 @@ $pdo=new PDO($connect, USER, PASS);
             echo '</form>';
 
 ?>
-<link rel="stylesheet" href="../css/frame.css">
 <br>
 <a href="menu.php">メニューに戻る</a>
+</div>
+        
+</body>
+</html>

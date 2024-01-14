@@ -1,6 +1,9 @@
+<link rel="stylesheet" href="../css/frame.css">
+
 <?php require 'db-connect.php'; ?>
 
 <?php
+echo '<div class="bg-full">';
 
     $pdo=new PDO($connect, USER, PASS);
     $sql=$pdo->prepare('delete from Pokemon where id=?');
@@ -21,5 +24,5 @@
         echo '</form>';
 
 ?>
-    <link rel="stylesheet" href="../css/frame.css">
         <a href="menu.php">メニューに戻る</a>
+</div>

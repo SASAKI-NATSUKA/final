@@ -1,6 +1,8 @@
+<link rel="stylesheet" href="../css/frame.css">
 <?php require 'db-connect.php'; ?>
 <?php
-    
+    echo '<div class="bg-full">';
+
     $pdo = new PDO($connect,USER,PASS);
     if (empty($_POST['name'])) {
         echo '名前を入力してください。';
@@ -40,8 +42,11 @@
     }
     echo '<hr>';
 ?>
-    <link rel="stylesheet" href="../css/frame.css">
     <form action="insert-input.php" method="post">
             <button type="submit">追加一覧画面に戻る</button>
             </form>
             <a href="menu.php">メニューに戻る</a>
+            </div>
+        
+</body>
+</html>

@@ -1,38 +1,9 @@
+
 <?php require 'db-connect.php'; ?>
 
 <?php
-// $pdo=new PDO($connect, USER, PASS);
+echo '<div class="bg-full">';
 
-// $sql=$pdo->prepare('select * from Pokemon where grId=?');
-// $sql->execute([$_POST['grId']]);
-// foreach ($sql as $row) {
-//     $id=$row['id'];
-//     echo '<tr>';
-//     echo '<td>NO.', $id, ':</td>';
-//     echo '<td>　';
-//     echo '　<a href="detail.php?id=', $id, '">', $row['name'], '</a>';
-//     echo '</td>';
-//     echo '<td>　',$row['bunrui'],'</td>';
-//     $sql2=$pdo->prepare('select * from Pokemon LEFT JOIN Type as t1 ON Pokemon.type1_id = t1.typeId JOIN Type as t2 ON Pokemon.type2_id = t2.typeId where id=?');
-//     $sql2->execute([$row['id']]);
-//     foreach ($sql2 as $row2) {
-//     echo '<td>　',$row2['type'],'</td>';
-//    }
-//    $sql2=$pdo->prepare('select * from Pokemon LEFT JOIN Type as t1 ON Pokemon.type1_id = t1.typeId JOIN Type as t2 ON Pokemon.type2_id = t2.typeId where id=?');
-//    $sql2->execute([$row['id']]);
-//    foreach ($sql2 as $row2) {
-//    echo '<td>　',$row2['type'],'</td>';
-//   }
-//     echo '</tr>';
-//     echo "<br>";
-// }
-// echo '</table>';
-
-
-
-?>
-
-<?php
 
 try {
     // データベースに接続
@@ -70,9 +41,10 @@ try {
          echo '<h2>グループ',$_POST['gr_name'],'</h2>';
          ?>
 
-    <table border="1">
+<table id="table" align="center" border="1">
         <tr>
             <th>写真</th>
+            <th>グループ</th>
             <th>ID</th>
             <th>Name</th>
             <th>Type 1</th>
@@ -81,6 +53,7 @@ try {
         <?php foreach ($result as $row): ?>
             <tr>
                 <td><?php echo'<img alt="image" src="../img/', $row['jpg'], '.jpg" height="120" width=120">'; ?></td>
+                <td><?php echo $row['gr_name']; ?></td>
                 <td><?php echo $row['ID']; ?></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['type1_name']; ?></td>
@@ -94,7 +67,7 @@ try {
     <br>
     <a href="menu.php">メニューに戻る</a>
 
- 
-</body>
-</html>
- 
+    </div>
+        
+        </body>
+        </html>

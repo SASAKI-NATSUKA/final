@@ -1,7 +1,9 @@
 <?php require 'db-connect.php'; ?>
-<h1>グループを選択してください。</h1>
 <?php
 echo '<form action="delete-input.php" method="post">';
+echo '<div class="bg-full">';
+echo '<h1>グループを選択してください。</h1>';
+
 
 $pdo=new PDO($connect, USER, PASS);
 //ここからプルダウン
@@ -26,4 +28,8 @@ $pdo=new PDO($connect, USER, PASS);
 ?>
     
 <br>
+<br>
 <a href="menu.php">メニューに戻る</a>
+<link rel="stylesheet" href="../css/frame.css">
+
+        </div>

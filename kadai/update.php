@@ -1,6 +1,21 @@
 <?php require 'db-connect.php'; ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/frame.css">
+
+    <title>Pokemon Data</title>
+</head>
+<body>
+
+<div class="bg-full">
 <h1>グループを選択してください。</h1>
+
 <?php
+
 echo '<form action="update-input.php" method="post">';
 
 $pdo=new PDO($connect, USER, PASS);
@@ -27,3 +42,4 @@ $pdo=new PDO($connect, USER, PASS);
     
 <br>
 <a href="menu.php">メニューに戻る</a>
+        </div>

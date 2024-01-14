@@ -9,8 +9,9 @@
     <title>final</title>
 </head>
 
+    
     <h1>pokemon手持ち管理</h1>
-    <table>
+    <table id="table" align="center">
     <tr>
     <td><form action="select1.php" method="post">
         <input type="submit" name="select" value="一覧">

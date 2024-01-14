@@ -10,8 +10,10 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="bg-full">
+<div class="bg-full">
+    <div id="insert" >
     <a href="menu.php">メニューに戻る</a>
+    <br>
     <br>
     <form action="insert-output.php" method="post">
         グループ:
@@ -21,15 +23,15 @@
         <br>
         名　　前:
         <input type="text" name="name">
-        <br>
         分　　類:
         <input type="text" name="bunrui">
+        <br>
         <br>
         写　　真:
         <input type="text" name="jpg">.jpg
         <br>
         <br>
-        <table align="left">
+        <table id="table" align="center">
             <tr>
             <td>
             タイプ1:
@@ -53,10 +55,6 @@
                         echo '</select>';
             ?>         
             </td>
-            </tr>
-        </table>
-        <table >
-            <tr>
             <td>
             タイプ2:
             <br>
@@ -77,14 +75,15 @@
                         echo $data;
                         echo '</select>';
             ?>         
-            <br>
-            <br>
         </td>
     </tr>
 </table>
 <br>
+<br>
         <input type="submit" name="insert" value="登録">
         </form>
-    </div>
+</div>
+</div>
+        
 </body>
 </html>

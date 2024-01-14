@@ -1,6 +1,18 @@
 <?php require 'db-connect.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/frame.css">
+
+    <title>Pokemon Data</title>
+</head>
+<body>
+
 <?php
-echo '<table>';
+echo '<div class="bg-full">';
+
 
 try {
     // データベースに接続
@@ -25,21 +37,10 @@ try {
  
 ?>
  
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/frame.css">
-
-    <title>Pokemon Data</title>
-</head>
-<body>
-    
  <?php
     echo '<h2>グループ',$_POST['gr_name'],'</h2>';
     ?>
-    <table border="1">
+    <table id="table" align="center" border="1">
         <tr>
             <th>写真</th>
             <th>グループ</th>
@@ -76,12 +77,9 @@ try {
 
     </table>
     <br>
-        <form action="update.php" method="post">
-        <button type="submit">戻る</button>
-        </form>
-
+    <a href="update.php">戻る</a>
+        </div>
     <br>
    
 <a href="menu.php">メニューに戻る</a>
    
-

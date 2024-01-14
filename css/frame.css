@@ -1,8 +1,24 @@
 .bg-full {
     width:100%;
     height:100vh;
-    background-image: url('../img/kabigon.jpg');
+    padding: 20px 0;
+    background-image: url('../img/pika.jpg');
     background-repeat: no-repeat;
     background-size:cover;
     background-position:center;
+    text-align: center;
+    margin: auto;
+    
+
   }
+
+#table{
+    margin: auto;
+
+}
+
+#insert{
+   margin-left: 50px;
+   margin-right: 50px;
+}
+

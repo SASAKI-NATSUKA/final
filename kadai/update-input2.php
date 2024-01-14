@@ -1,11 +1,24 @@
 <?php require 'db-connect.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/frame.css">
+
+    <title>Pokemon Data</title>
+</head>
+<body>
+
 <?php
+echo '<div class="bg-full">';
 
                     $pdo=new PDO($connect, USER, PASS);
                     $sql=$pdo->prepare('select * from Pokemon LEFT JOIN Gr ON Pokemon.gr_Id = Gr.grId where id=?');
                     $sql->execute([$_POST['id']]);
-                    echo '<table>';
+                    echo '<table id="table" align="center" border="1">';
                     foreach ($sql as $row) {
+                        $gr_name=$row['gr_name'];
                         echo '<tr>';
                         echo '<form action="update-output.php" method="post">';
                         echo '<td> <img alt="image" src="../img/', $row['jpg'], '.jpg" height="120" width=120">'; 
@@ -64,12 +77,25 @@
                             echo '　',$data;
                             echo '</select>';
                         }
-
-                        echo '<input type="submit" value="更新" />';
-                        echo '</form>';
+                      
+                        echo '<br>';
                         echo '</td>';
+                        echo '<td>';
+                        echo '<input type="submit" value="更新" />';
+                        echo '</td>';
+                        echo '</form>';
                         echo '</tr>';
+                     
+                      
+
                         echo "\n";
-                    echo '</table>';
+                        echo '</table>';
+                        echo '<form action="update-input.php" method="post">';
+                        echo '<input type="hidden" name="gr_name" value="', $gr_name, '">';
+                        echo '<button type="submit">更新一覧画面に戻る</button>';
+                        echo '<br>';
+                        echo '<br>';
+                        echo '</form>';
                     ?>
-                        <link rel="stylesheet" href="../css/frame.css">
+                    </div>
+
