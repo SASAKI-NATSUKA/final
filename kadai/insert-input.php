@@ -5,9 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/frame.css">
+
     <title>Document</title>
 </head>
 <body>
+    <div class="bg-full">
     <a href="menu.php">メニューに戻る</a>
     <br>
     <form action="insert-output.php" method="post">
@@ -82,6 +85,6 @@
 <br>
         <input type="submit" name="insert" value="登録">
         </form>
-        
+    </div>
 </body>
 </html>

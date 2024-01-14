@@ -1,5 +1,6 @@
 <?php require 'db-connect.php'; ?>
 <?php
+
                     $pdo=new PDO($connect, USER, PASS);
                     $sql=$pdo->prepare('select * from Pokemon LEFT JOIN Gr ON Pokemon.gr_Id = Gr.grId where id=?');
                     $sql->execute([$_POST['id']]);
@@ -71,3 +72,4 @@
                         echo "\n";
                     echo '</table>';
                     ?>
+                        <link rel="stylesheet" href="../css/frame.css">

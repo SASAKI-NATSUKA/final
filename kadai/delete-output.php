@@ -1,6 +1,7 @@
 <?php require 'db-connect.php'; ?>
 
 <?php
+
     $pdo=new PDO($connect, USER, PASS);
     $sql=$pdo->prepare('delete from Pokemon where id=?');
     if($sql->execute([$_POST['id']])){
@@ -20,4 +21,5 @@
         echo '</form>';
 
 ?>
+    <link rel="stylesheet" href="../css/frame.css">
         <a href="menu.php">メニューに戻る</a>

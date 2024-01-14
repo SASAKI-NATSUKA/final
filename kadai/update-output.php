@@ -1,6 +1,7 @@
 <?php require 'db-connect.php'; ?>
 
 <?php
+
     $pdo=new PDO($connect, USER, PASS);
     $id=$_POST['id'];
     $name=$_POST['name'];
@@ -66,7 +67,9 @@
         ?>
         </div>
         <br>
+        <link rel="stylesheet" href="../css/frame.css">
         <a href="menu.php">メニューに戻る</a>
+
 </body>
 </html>
 

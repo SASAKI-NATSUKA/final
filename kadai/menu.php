@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
+<div class="bg-full">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/frame.css">
     <title>final</title>
 </head>
-<body>
+
     <h1>pokemon手持ち管理</h1>
     <table>
     <tr>
@@ -29,6 +32,6 @@
     </form>
     </td>
 </tr>
-
+</div>
 </body>
 </html>
