@@ -23,10 +23,11 @@ try{
     $gr_name=$_POST['gr_name'];
     $jpg=$_POST['jpg'];
 
-    $sql=$pdo->prepare('update Pokemon LEFT JOIN Type as t1 ON Pokemon.type1_id = t1.typeId JOIN Type as t2 ON Pokemon.type2_id = t2.typeId 
-                        set name=?,bunrui=?, type1_id=?, type2_id=?, jpg=?
-                        where id=?');
-    $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+    $sql2=$pdo->prepare('select  grId from Gr where gr_name=?');
+    $sql2->execute([$gr_name]);
+    foreach ($sql2 as $row){
+        $grId=$row['grId'];
+    }
 
 
     if (empty($name)) {
@@ -46,7 +47,14 @@ try{
     // if(empty($_POST['pass'])){
     //     echo '商品画像パスを入力してください。';
     }else{
-        $sql->execute([$name, $bunrui, $type1,$type2,$jpg, $id]);
+        $sql=$pdo->prepare('update Pokemon 
+        LEFT JOIN Type as t1 ON Pokemon.type1_id = t1.typeId JOIN Type as t2 ON Pokemon.type2_id = t2.typeId 
+        LEFT JOIN Gr ON Pokemon.gr_Id = Gr.grId
+        set name=?,bunrui=?, type1_id=?, type2_id=?, gr_Id=?, jpg=?
+        where id=?');
+        // $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        $sql->execute([$name, $bunrui, $type1,$type2,$grId,$jpg, $id]);
         echo '更新に成功しました。';
         
     }

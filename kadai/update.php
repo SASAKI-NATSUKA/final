@@ -43,3 +43,5 @@ $pdo=new PDO($connect, USER, PASS);
 <br>
 <a href="menu.php">メニューに戻る</a>
         </div>
+        </body>
+        </html>

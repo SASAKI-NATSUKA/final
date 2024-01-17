@@ -2,7 +2,6 @@
 <?php require 'db-connect.php'; ?>
 
 <?php
-echo '<div class="bg-full">';
 
 
 try {
@@ -33,10 +32,11 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/frame.css">
+    <link rel="stylesheet" href="../css/frame2.css">
     <title>Pokemon Data</title>
 </head>
 <body>
+    <div class="bg-full">
          <?php 
          echo '<h2>グループ',$_POST['gr_name'],'</h2>';
          ?>
@@ -47,6 +47,7 @@ try {
             <th>グループ</th>
             <th>ID</th>
             <th>Name</th>
+            <th>分類</th>
             <th>Type 1</th>
             <th>Type 2</th>
         </tr>
@@ -56,6 +57,7 @@ try {
                 <td><?php echo $row['gr_name']; ?></td>
                 <td><?php echo $row['ID']; ?></td>
                 <td><?php echo $row['name']; ?></td>
+                <td><?php echo $row['bunrui']; ?></td>
                 <td><?php echo $row['type1_name']; ?></td>
                 <td><?php echo $row['type2_name']; ?></td>
             </tr>

@@ -1,5 +1,4 @@
 <?php require 'db-connect.php'; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +9,17 @@
     <title>Pokemon Data</title>
 </head>
 <body>
-    <div class="bg-full">
-    <h1>グループを選択してください。</h1>
+
+<div class="bg-full">
+<h1>グループ削除</h1>
+<br>
+<font color="red">⚠削除したいグループの中のポケモンを削除してから行ってください⚠</font></p>
 
 <?php
 $pdo=new PDO($connect, USER, PASS);
-
-echo '<form action="delete-input.php" method="post">';
+echo '<form action="group-delete-output.php" method="post">';
 //ここからプルダウン
-            $sql = 'select distinct gr_name from Gr';
+            $sql = 'select gr_name from Gr';
             $data = "";
 
             if ($stmt = $pdo->query($sql)) {
@@ -40,9 +41,10 @@ echo '<form action="delete-input.php" method="post">';
     
 <br>
 <br>
-<a href="group-delete-input.php">グループ削除はこちら</a>
+<a href="delete.php">削除画面に戻る</a>
 <br>
 <a href="menu.php">メニューに戻る</a>
+<link rel="stylesheet" href="../css/frame.css">
 
         </div>
         </body>
